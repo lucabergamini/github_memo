@@ -36,4 +36,11 @@ Github commands memo
 ``git push --set-upstream origin <branch>``  create a remote branch from the local one
 ## MERGE
 ``git merge <branch>``  merge the selected branch to the current
+## STASH
+``git stash`` stash the current edit in a FIFO stack and checkout the current branch
+
+``git stash list`` show the list of stashed 
+
+``git stash pop`` restore the top edit from the stash
+
 
