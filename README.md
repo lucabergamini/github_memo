@@ -36,11 +36,14 @@ Github commands memo
 ``git push --set-upstream origin <branch>``  create a remote branch from the local one
 ## MERGE
 ``git merge <branch>``  merge the selected branch to the current
+``git checkout <branch> file1 file2 ...`` merge only selected file from local committed branch
 ## STASH
 ``git stash`` stash the current edit in a FIFO stack and checkout the current branch
 
 ``git stash list`` show the list of stashed 
 
 ``git stash pop`` restore the top edit from the stash
-
+## UNDO
+``git reset HEAD~`` destroy latest unpushed commit
+``git checkout file1 file2 ...`` revert to latest commit status
 
