@@ -21,6 +21,8 @@ Github commands memo
 
 ``git push origin <branch>``  push data to the remote branch
 ## BRANCH
+``git branch``  show working branch
+
 ``git branch <name>``  create a new local branch
 
 ``git branch <name> <branch>``  create a new branch pointing to a remote one
