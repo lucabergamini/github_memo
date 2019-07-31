@@ -20,6 +20,8 @@ Github commands memo
 ``git commit -m ‘<message>’`` start a commit with the added files
 
 ``git push origin <branch>``  push data to the remote branch
+
+``git commit --amend`` add the new ``git add`` to previous commit
 ## BRANCH
 ``git branch``  show working branch
 
