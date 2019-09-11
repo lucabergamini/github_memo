@@ -50,4 +50,6 @@ Github commands memo
 ## UNDO
 ``git reset HEAD~`` destroy latest unpushed commit
 ``git checkout file1 file2 ...`` revert to latest commit status
+## SUBMODULE
+``git submodule add url_to/awesome_submodule.git path_to_awesome_submodule`` add the submodule to the current repo (note that this is a link to a commit, and it's NOT kept updated)
 
