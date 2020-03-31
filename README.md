@@ -5,6 +5,7 @@ Github commands memo
 ``git init .``  start a local repository in the current folder
 
 ``git remote add origin <link>``  set the new origin for the local repo to point to
+
 ``git remote set-url origin <link>`` reset the origin (useful for setting origin to ssh)
 ## SANITY CHECKS
 ``git status``  print the status of the local repo
