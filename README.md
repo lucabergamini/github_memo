@@ -43,7 +43,8 @@ Github commands memo
 
 ``git push -u origin <branch>``  create a remote branch from the local one
 ## MERGE
-``git merge <branch>``  merge the selected branch to the current
+``git merge <branch>``  merge the selected branch to the current (run from local branch pointing to origin/master to get latest master edits)
+
 ``git checkout <branch> file1 file2 ...`` merge only selected file from local committed branch
 ## STASH
 ``git stash`` stash the current edit in a FIFO stack and checkout the current branch
