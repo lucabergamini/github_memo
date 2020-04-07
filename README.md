@@ -29,6 +29,8 @@ Github commands memo
 
 ``git branch <name>``  create a new local branch
 
+``git checkout -b <name>`` create a new local branch and checkout on it
+
 ``git branch <name> <branch>``  create a new branch pointing to a remote one
 
 ``git branch -d <name>`` remove the selected local branch
@@ -39,7 +41,7 @@ Github commands memo
 
 ``git checkout <status hash>``  detach head to the selected hash
 
-``git push --set-upstream origin <branch>``  create a remote branch from the local one
+``git push -u origin <branch>``  create a remote branch from the local one
 ## MERGE
 ``git merge <branch>``  merge the selected branch to the current
 ``git checkout <branch> file1 file2 ...`` merge only selected file from local committed branch
