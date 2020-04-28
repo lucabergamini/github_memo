@@ -41,11 +41,13 @@ Github commands memo
 
 ``git checkout <status hash>``  detach head to the selected hash
 
-``git push -u origin <branch>``  create a remote branch from the local one
+``git push -u origin <local branch>``  create a remote branch (with the same name) from the local one and push to it
 ## MERGE
 ``git merge <branch>``  merge the selected branch to the current (run from local branch pointing to origin/master to get latest master edits)
 
 ``git checkout <branch> file1 file2 ...`` merge only selected file from local committed branch
+
+``git reset --hard HEAD~1`` after merge destroy the merge and remove files created by merge (--hard)
 ## STASH
 ``git stash`` stash the current edit in a FIFO stack and checkout the current branch
 
