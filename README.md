@@ -27,11 +27,11 @@ Github commands memo
 ## BRANCH
 ``git branch``  show working branch
 
-``git branch <name>``  create a new local branch
-
 ``git checkout -b <name>`` create a new local branch and checkout on it
 
-``git branch <name> <branch>``  create a new branch pointing to a remote one
+``git fetch origin`` update local with new remote branches (so we can checkout on them)
+
+``git checkout -b <name> <branch>`` create a new branch pointing to a remote existing one
 
 ``git branch -d <name>`` remove the selected local branch
 
