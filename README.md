@@ -17,6 +17,8 @@ Github commands memo
 ## UPDATE
 ``git pull origin <branch>``  pull data from the specified branch (e.g. Master)
 
+``git fetch origin`` update local with new remote branches (so we can checkout on them)
+
 ``git add <file>``  add file to the current commit
 
 ``git commit -m ‘<message>’`` start a commit with the added files
