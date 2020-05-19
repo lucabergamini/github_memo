@@ -45,7 +45,7 @@ Github commands memo
 
 ``git push -u origin <local branch>``  create a remote branch (with the same name) from the local one and push to it
 
-``git rebase --onto master <b1> <b2>`` if <b2> was stemming from <b1> now it stems from master (and so it doesn't have all <b1> history
+``git rebase --onto master <b1> <b2>`` if ``b2`` was stemming from ``b1`` now it stems from master (and so it doesn't have all <b1> history
   
 ## MERGE
 ``git merge <branch>``  merge the selected branch to the current (run from local branch pointing to origin/master to get latest master edits)
