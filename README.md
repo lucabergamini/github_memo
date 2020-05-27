@@ -1,19 +1,19 @@
 # github_memo
-Github commands memo
+Git commands memo
 
 ## SETUP
 ``git config user.name <name>`` set the username for this repo
 
 ``git config alias.<al> "<cmd>"`` when calling ``git <al>`` the latter is replaced with ``<cmd>``
 
-## CREATE AND SYNCH
+## CREATE AND SYNC
 ``git init .``  start a local repository in the current folder
 
 ``git init --bare repo.git``  start a local repositoryin the ``repo.git`` folder where only the ``.git`` is kept (no project file). Useful for starting a local remote
 
 ``git remote add <remote-name> <link>``  add a remote to the current local repo
 
-``git remote set-url <remote-url> <link>`` reset the remote to another location (useful for changing origin from https to ssh)
+``git remote set-url <remote-name> <link>`` reset the remote to another location (useful for changing origin from https to ssh)
 ## SANITY CHECKS
 ``git status``  print the status of the local repo (working and staged trees are shown)
 
@@ -79,7 +79,6 @@ Github commands memo
 ``git reset SHA`` revert to a given commit (from SHA)
 
 ``git reset --hard HEAD~1`` destroy last commit and bring back the branch to previous commit (*DATA CAN BE LOST*)
-
 ## SUBMODULE
 ``git submodule add url_to/awesome_submodule.git path_to_awesome_submodule`` add the submodule to the current repo (note that this is a link to a commit, and it's NOT kept updated)
 
