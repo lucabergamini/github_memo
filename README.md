@@ -64,7 +64,7 @@ Git commands memo
 
 ``git checkout <branch> file1 file2 ...`` merge only selected file from local committed branch
 ## STASH
-``git stash`` stash the current working tree in a FIFO stack and checkout the current branch
+``git stash`` stash the current working tree in a FIFO stack and checkout the current branch (stash acts like a tag)
 
 ``git stash list`` show the list of stashed 
 
