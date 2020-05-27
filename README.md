@@ -74,7 +74,9 @@ Git commands memo
 
 ``git reset HEAD file1 file2 ...`` revert from staged tree to working tree
 
-``git reset HEAD~1`` revert to previous commit
+``git reset HEAD`` revert to last commit but keep changes in working tree (--hard to remove them)
+
+``git reset HEAD~1`` revert to previous commit (HEAD - 1)
 
 ``git reset SHA`` revert to a given commit (from SHA)
 
