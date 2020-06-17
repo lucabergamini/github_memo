@@ -17,8 +17,6 @@ Git commands memo
 ## SANITY CHECKS
 ``git status``  print the status of the local repo (working and staged trees are shown)
 
-``git remote update``  update the info about the pointed remote branch
-
 ``git diff <file>``  print the diff between the commited and working tree for the file (``--staged`` for seeing difference with staged tree)
 
 ``git log`` show latest commits
@@ -26,6 +24,12 @@ Git commands memo
 ``git log --graph --all --oneline`` show a graph for all branches (both local and remote) with compressed commits
 
 ``git reflog`` show latest chamges in repo (checkouts, rebases, merges). Can be used to revert back to a commit when it's not pointed anymore
+
+``git log <file>`` show commit where <file> was touched and which edits have been introduced
+  
+``git log -L <l-start>,<l-end>:<file>`` perform the check only in the lines range
+
+``git blame -L <l-start>,<l-end> <file>`` shows who edited the lines range in <file> the LAST TIME
 
 ## UPDATE
 ``git fetch origin`` update local with new remote branches headers
@@ -69,7 +73,17 @@ Git commands memo
 ``git stash list`` show the list of stashed 
 
 ``git stash pop`` restore the top edit from the stash
-## UNDO
+
+## UNDO (without file)
+``git reset --soft SHA`` **move branch** pointed from HEAD to SHA. Staged area is beyond commit, so we can `commit` again.
+
+``git reset --mixed SHA`` **move branch** pointed from HEAD, update staging tree (index) with commit content (default of `reset`). Working area is beyond index and comit, so we can `add` again.
+
+``git reset --hard SHA`` **move branch** pointed from HEAD, update staging tree (index) and working dir with commit content (**this can not be reversed for uncommited files!**). In practice, the repo looks like SHA now.
+
+``git checkout SHA`` **move HEAD** to SHA, update index and working dirs **if it can be done cleanly**, otherwise stop (safe)
+
+## UNDO (with file)
 ``git checkout file1 file2 ...`` revert from working tree to last commit status
 
 ``git reset HEAD file1 file2 ...`` revert from staged tree to working tree
