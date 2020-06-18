@@ -84,17 +84,10 @@ Git commands memo
 ``git checkout SHA`` **move HEAD** to SHA, update index and working dirs **if it can be done cleanly**, otherwise stop (safe)
 
 ## UNDO (with file)
-``git checkout file1 file2 ...`` revert from working tree to last commit status
+``git checkout file1 file2 ...`` **don't move HEAD**, update index and working tree version of the files (**this can not be reversed for uncommited files!**)
 
-``git reset HEAD file1 file2 ...`` revert from staged tree to working tree
+``git reset HEAD file1 file2 ...`` **don't move HEAD** update index tree version of the files
 
-``git reset HEAD`` revert to last commit but keep changes in working tree (--hard to remove them)
-
-``git reset HEAD~1`` revert to previous commit (HEAD - 1)
-
-``git reset SHA`` revert to a given commit (from SHA)
-
-``git reset --hard HEAD~1`` destroy last commit and bring back the branch to previous commit (*DATA CAN BE LOST*)
 ## SUBMODULE
 ``git submodule add url_to/awesome_submodule.git path_to_awesome_submodule`` add the submodule to the current repo (note that this is a link to a commit, and it's NOT kept updated)
 
