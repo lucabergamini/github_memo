@@ -88,6 +88,11 @@ Git commands memo
 
 ``git reset HEAD file1 file2 ...`` **don't move HEAD** update index tree version of the files
 
+## TAGS
+``git tag -a <tag_name>`` create an annotated tag named <tag_name> and fire up the editor to add a message (or `-m` and the message to do it inline)
+
+``git push origin --tags`` push the tags to the remote named origin (this creates a distribution entry in GitHub)
+
 ## SUBMODULE
 ``git submodule add url_to/awesome_submodule.git path_to_awesome_submodule`` add the submodule to the current repo (note that this is a link to a commit, and it's NOT kept updated)
 
