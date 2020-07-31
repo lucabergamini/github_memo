@@ -33,8 +33,12 @@
  
  `docker run -it <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it, with also a nice formatted terminal to send input
  
- ## run in container
+ ## container lifecycle
  
  `docker exec -it <container_id> <cmd>`: run <cmd> in the running container with id <container_id>. Useful to open a shell on the container 
+ 
+ `docker stop <container_id>`: send a SIGTERM to the container. If the container ignores it, send a SIGKILL after 10s
+ 
+ `docker kill <container_id>`: send a SIGKILL to the container. 
  
  
