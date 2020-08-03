@@ -1,3 +1,5 @@
+# Docker-CLI
+
 ## Terms
 
 `image`:  a FS with a run command
@@ -31,6 +33,9 @@
  
  `docker run <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it. By default, STDOUT and STDERR are attached to the shell, but STDIN is not
  
+ `docker run -d <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it in detached mode (prompt is returned)
+ 
+ 
  `docker run -it <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it, with also a nice formatted terminal to send input
  
  ## container lifecycle
@@ -39,6 +44,18 @@
  
  `docker stop <container_id>`: send a SIGTERM to the container. If the container ignores it, send a SIGKILL after 10s
  
- `docker kill <container_id>`: send a SIGKILL to the container. 
+ `docker kill <container_id>`: send a SIGKILL to the container.
+ 
+ # Dockerfile
  
  
+ # docker-compose
+ 
+`docker-compose up`: start containers.
+ 
+`docker-compose up --build`: re-build and start containers.
+
+`docker-compose down`: stop containers.
+
+`docker-compose ps`: list processes associated with containers defined in the `docker-compose.yml`
+
