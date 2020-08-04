@@ -6,6 +6,10 @@
 
 `container`: live instance of an image. An image can spawn multiple containers (each one is isolated) 
 
+`port`: unix port (like 8000)
+
+`volume`: a reference to a folder or file on the host machine (**TODO check this**)
+
 ## system
 `docker system prune`: remove images and container dangling
 
@@ -17,14 +21,14 @@
  
 `docker images -a`: list all images 
  
- ## image
+ ## create image
  `docker build . -t user/image_name:version <image_name>`: create a new image from this folder (will look for Dockerfile) and tag it. If `version` is omitted latest is default.
  
 `docker build . -f <file>`: create a new image from this folder using <file> as Dockerfile.
  
 `docker commit -c 'CMD ["command"]' <container_id>`: create a new image from the running container <container_id>. This shouldn't really be used.
  
- ## image->container
+ ## run containers (I)
  
  `docker create <image_name> <default_cmd>`: create a new container from image <image_name> which will run <default_cmd> once started. The container id is returned but the container is not started
  
@@ -33,12 +37,18 @@
  `docker start -ai <container_id>`: start the container <container_id> and attach STDOUT, STDERR and STDIN
   
  
+ ## run containers (II)
+ 
  `docker run <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it. By default, STDOUT and STDERR are attached to the shell, but STDIN is not
  
  `docker run -d <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it in detached mode (prompt is returned)
  
  
  `docker run -it <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it, with also a nice formatted terminal to send input
+ 
+ ## ports mapping
+ 
+ ## volumes mapping
  
  ## container lifecycle
  
