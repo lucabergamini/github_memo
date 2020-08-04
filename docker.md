@@ -20,6 +20,8 @@
  ## image
  `docker build . -t user/image_name:version <image_name>`: create a new image from this folder (will look for Dockerfile) and tag it. If `version` is omitted latest is default.
  
+`docker build . -f <file>`: create a new image from this folder using <file> as Dockerfile.
+ 
 `docker commit -c 'CMD ["command"]' <container_id>`: create a new image from the running container <container_id>. This shouldn't really be used.
  
  ## image->container
