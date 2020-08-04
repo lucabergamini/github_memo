@@ -28,7 +28,7 @@
  
  `docker start <container_id>`: start the container <container_id>. If the container was stopped, restart it **and run <default_cmd> again**. By default, STDOUT is not attached
  
- `docker start -a <container_id>`: start the container <container_id> and attach STDOUT (and STDERR)
+ `docker start -ai <container_id>`: start the container <container_id> and attach STDOUT, STDERR and STDIN
   
  
  `docker run <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it. By default, STDOUT and STDERR are attached to the shell, but STDIN is not
