@@ -8,7 +8,7 @@
 
 `port`: unix port (like 8000)
 
-`volume`: a reference to a folder or file on the host machine (**TODO check this**)
+`volume`: a persistent folder structure in the container
 
 ## system
 `docker system prune`: remove images and container dangling
@@ -47,6 +47,11 @@
  `docker run -it <image_name/id> <default_cmd>`: create a new container from image <image_name> and run <default_cmd> inside of it, with also a nice formatted terminal to send input
  
  ## ports mapping
+ Ports mapping is a **run** option, which means ports must be specified when using `docker run`. Alternatively, ports can be specified in the `docker-compose.yaml` file.
+ 
+ `docker run -p <host-port>:<container-port>` bind input ports. Output ports are opened by default (otherwise docker container wouldn't be able to connect to the internet)
+ 
+ 
  
  ## volumes mapping
  
