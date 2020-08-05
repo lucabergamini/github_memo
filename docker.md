@@ -13,13 +13,23 @@
 ## system
 `docker system prune`: remove images and container dangling
 
-`docker system prune -a`: remove everything
+`docker system prune -a`: remove networks, images and containers
  
 `docker ps`: show currently running containers
  
 `docker ps --all`: show all containers (running, stopped)
  
 `docker images -a`: list all images 
+
+`docker image prune`: remove images
+
+`docker network ls`: list networks
+
+`docker network prune`: remove networks
+
+`docker volume ls`: list volumes
+
+`docker volume prune`: remove volumes
  
  ## create image
  `docker build . -t user/image_name:version <image_name>`: create a new image from this folder (will look for Dockerfile) and tag it. If `version` is omitted latest is default.
