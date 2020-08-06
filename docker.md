@@ -65,6 +65,11 @@
  
  ## volumes mapping
  
+ ## Args mapping
+ 
+ `docker run -e <env_name>=<env_value> ...`: set and pass <env_name> to the docker container. An example is `CI=true` for npm test, wich disables CLI in CI.
+ 
+ 
  ## container lifecycle
  
  `docker exec -it <container_id> <cmd>`: run <cmd> in the running container with id <container_id>. Useful to open a shell on the container 
