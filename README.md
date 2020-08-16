@@ -25,7 +25,7 @@ Git commands memo
 
 ``git reflog`` show latest chamges in repo (checkouts, rebases, merges). Can be used to revert back to a commit when it's not pointed anymore
 
-``git log <file>`` show commit where <file> was touched and which edits have been introduced
+``git log -p <file>`` show commit where <file> was touched and which edits have been introduced
   
 ``git log -L <l-start>,<l-end>:<file>`` perform the check only in the lines range
 
