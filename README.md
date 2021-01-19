@@ -63,6 +63,9 @@ Git commands memo
 ``git push -u origin <local branch>``  create a remote branch (with the same name) from ``local brach`` and push to it
 
 ``git rebase --onto master <b1> <b2>`` if ``b2`` was stemming from ``b1`` now it stems from master (and so it doesn't have all ``b1`` history)
+
+``git rebase -i <b1>`` interactively rebase this branch on `b1`. Note: by default merge commits are discarded when rebasing!
+
 ## MERGE
 ``git merge <branch>``  merge ``branch`` to the one pointed by HEAD (run from local branch pointing to origin/master to get latest master edits)
 
