@@ -93,8 +93,10 @@ Git commands memo
 
 ## TAGS
 ``git tag -a <tag_name>`` create an annotated tag named <tag_name> and fire up the editor to add a message (or `-m` and the message to do it inline)
+  
+``git push origin <tag_name>`` push a single tag to origin (this creates a distribution entry in GitHub)
 
-``git push origin --tags`` push the tags to the remote named origin (this creates a distribution entry in GitHub)
+``git push origin --tags`` push **all** tags to the remote named origin (not recommended)
 
 ## SUBMODULE
 ``git submodule add url_to/awesome_submodule.git path_to_awesome_submodule`` add the submodule to the current repo (note that this is a link to a commit, and it's NOT kept updated)
