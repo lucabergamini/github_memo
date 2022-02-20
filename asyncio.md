@@ -181,6 +181,7 @@ Note that:
 - the tasks are actually starting before the call to gather (will do noop);
 - if we raise the exception we loop over the tasks and we cancel them manually;
 - **cancelling the `gather` will not work**, as its future has already been fullfilled when the `raise` branch is entered
+- we should actually call `await t` to ensure we wait for the task to be cancelled (this involves handling exceptions)
 
 `wait_for` awaits for a single `task` to finish or until the timeout is hit.
 
