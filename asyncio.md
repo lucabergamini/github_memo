@@ -178,6 +178,7 @@ if __name__ == "__main__":
 
 ```
 Note that:
+- the tasks are actually starting before the call to gather (will do noop);
 - if we raise the exception we loop over the tasks and we cancel them manually;
 - **cancelling the `gather` will not work**, as its future has already been fullfilled when the `raise` branch is entered
 
@@ -221,4 +222,86 @@ Note that:
 - this takes 3s;
 - one task must be cancelled
 
+## Threading
+`asyncio.to_thread` is a way to schedule standard functions on a different thread and await for their results as with `awaitables`.
 
+### blocking thread example
+```python
+import asyncio
+from time import time, sleep
+
+
+def cycle_print_block(cycles, what):
+    for idx_cycle in range(cycles):
+        sleep(1.0)
+        print(f"what: {what} cycle: {idx_cycle + 1}")
+
+
+async def cycle_print(cycles, what):
+    for idx_cycle in range(cycles):
+        await asyncio.sleep(1.0)
+        print(f"what: {what} cycle: {idx_cycle + 1}")
+
+
+async def main():
+    tasks = [
+        asyncio.create_task(cycle_print(2, "task1")),
+        asyncio.create_task(cycle_print(5, "task2")),
+        asyncio.create_task(asyncio.to_thread(cycle_print_block, 2, "task_block"))
+    ]
+    await asyncio.gather(*tasks)
+
+
+if __name__ == "__main__":
+    clk = time()
+    asyncio.run(main())
+    print(f"done in {time() - clk}")
+
+```
+Note that:
+- this will take 5s as the blocking function is scheduled in another thread
+
+If we instead want to run some `coroutines` from another thread we can use `asyncio.run_coroutine_threadsafe`. This function takes the loop and submit a coroutine to it.
+
+The issue is that this cannot be awaited as it returns a `future` and as such there is no guarantees it will be executed entirely.
+
+Still, we can combine the two:
+
+### Thread running async
+```python
+import asyncio
+from time import sleep, time
+from threading import Thread
+
+
+def another_thread(loop):
+    sleep(1)
+    future = asyncio.run_coroutine_threadsafe(cycle_print(5, "another_thread"), loop)
+    future.result()
+
+
+async def cycle_print(cycles, what):
+    for idx_cycle in range(cycles):
+        await asyncio.sleep(1.0)
+        print(f"what: {what} cycle: {idx_cycle + 1}")
+
+
+async def main():
+
+    tasks = [
+        asyncio.create_task(cycle_print(2, "task1")),
+        asyncio.create_task(cycle_print(5, "task2")),
+        asyncio.to_thread(another_thread, asyncio.get_event_loop()),
+    ]
+    await asyncio.gather(*tasks)
+
+
+if __name__ == "__main__":
+    clk = time()
+    asyncio.run(main())
+    print(f"done in {time() - clk}")
+```
+Note that:
+- we start a thread from asyncio so that we can await its result;
+- the thread send an `awaitable` to the loop;
+- we will wait for that, as we `await gather`
